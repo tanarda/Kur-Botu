@@ -10,8 +10,8 @@ let latestCall = null
 let sonKurBilgisi = null
 async function getCurrencyData() {
   try {
-    const response = await axios.get(http://data.fixer.io/api/latest?access_key=${process.env.FIXER_APIKEY}&symbols=XAU,USD,TRY);
-    const kurBilgisi = Dolar: ${(response.data.rates.TRY / response.data.rates.USD).toFixed(2)} TL\nEuro: ${response.data.rates.TRY.toFixed(2)} TL\nGram Altın: ${Math.round((response.data.rates.TRY / response.data.rates.XAU) / 31.1034768)} TL;
+    const response = await axios.get("http://data.fixer.io/api/latest?access_key=${process.env.FIXER_APIKEY}&symbols=XAU,USD,TRY");
+    const kurBilgisi = `Dolar: ${(response.data.rates.TRY / response.data.rates.USD).toFixed(2)} TL\nEuro: ${response.data.rates.TRY.toFixed(2)} TL\nGram Altın: ${Math.round((response.data.rates.TRY / response.data.rates.XAU) / 31.1034768)} TL`;
     latestCall = response.data
     sonKurBilgisi = kurBilgisi
     return kurBilgisi;
